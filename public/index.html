@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#070817" />
+  <meta name="description" content="MyToDo - plan your day, finish your tasks and get WhatsApp reminders when something is overdue." />
+  <title>MyToDo — Plan it. Do it. Never miss it.</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <script src="/js/theme.js"></script>
+</head>
+<body>
+  <!-- SVG icon sprite -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-mail" viewBox="0 0 24 24"><path d="M4 6h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m3.5 7.5 8.5 6 8.5-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M11 18.5h2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+      <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4.5" y="10.5" width="15" height="10" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+      <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4.5 20c.9-3.6 3.8-5.5 7.5-5.5s6.6 1.9 7.5 5.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+      <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+      <symbol id="i-eye-off" viewBox="0 0 24 24"><path d="M3 3l18 18M10.6 5.7A9.6 9.6 0 0 1 12 5.5c6 0 9.5 6.5 9.5 6.5a16 16 0 0 1-3.2 3.9M6.6 6.9A16 16 0 0 0 2.5 12S6 18.5 12 18.5c1.6 0 3-.4 4.2-1M9.9 9.9a3 3 0 0 0 4.2 4.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+      <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4.5 7h15M9.5 7V4.5h5V7M6.5 7l.8 12.5h9.4L17.5 7M10 11v5M14 11v5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-edit" viewBox="0 0 24 24"><path d="M4 20h4L19 9a2.1 2.1 0 0 0-3-3L5 17z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m14.5 7.5 2 2" stroke="currentColor" stroke-width="1.8"/></symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+      <symbol id="i-logout" viewBox="0 0 24 24"><path d="M9 4.5H6a1.5 1.5 0 0 0-1.5 1.5v12A1.5 1.5 0 0 0 6 19.5h3M14 8l4 4-4 4M18 12H9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0-7.7 13.6L3 21l4.5-1.2A9 9 0 1 0 12 3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8.8 8.5c.2-.5.5-.5.8-.5s.4.1.5.4l.6 1.4c0 .3 0 .4-.2.6l-.4.5c.7 1.3 1.7 2.2 3.1 2.8l.6-.7c.2-.2.3-.2.6-.1l1.4.7c.3.1.4.2.3.6-.1.9-1 1.5-1.8 1.5-2.6-.2-5.4-2.8-5.7-5.2 0-.7.3-1.3.4-1.8z" fill="currentColor"/></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 7.5V12l3 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 5 6v5.5c0 4.3 2.8 7.8 7 9.5 4.2-1.7 7-5.2 7-9.5V6z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m9 12 2.2 2.2L15 10.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2.5 5 13.5h6l-1 8 8-11h-6z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H5m5-5-5 5 5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3.5 2.8 19.5h18.4z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 10v4.5M12 17.2v.1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+      <symbol id="i-list" viewBox="0 0 24 24"><path d="M9 6.5h11M9 12h11M9 17.5h11M4.5 6.5h.01M4.5 12h.01M4.5 17.5h.01" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    </defs>
+  </svg>
+
+  <canvas id="bg" aria-hidden="true"></canvas>
+  <div class="aurora" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+  <canvas id="fx" aria-hidden="true"></canvas>
+
+  <!-- ═════════════════ AUTH ═════════════════ -->
+  <div id="auth-view" class="auth-shell">
+    <section class="auth-hero">
+      <a class="brand" href="/" aria-label="MyToDo"><span class="brand-mark"><svg class="ico"><use href="#i-check"/></svg></span><span class="brand-name">MyToDo</span></a>
+      <h1 class="hero-title">Plan it.<br><span class="grad">Do it.</span><br>Never miss it.</h1>
+      <p class="hero-sub">Your tasks, your schedule and a WhatsApp nudge the moment something runs late — all in one beautiful place.</p>
+      <ul class="hero-points">
+        <li><span class="pt"><svg class="ico"><use href="#i-whatsapp"/></svg></span><div><b>WhatsApp overdue alerts</b><small>Get a message on your own number when a task is late</small></div></li>
+        <li><span class="pt"><svg class="ico"><use href="#i-phone"/></svg></span><div><b>Sign in your way</b><small>Use your email or your phone number</small></div></li>
+        <li><span class="pt"><svg class="ico"><use href="#i-shield"/></svg></span><div><b>Private &amp; secure</b><small>Encrypted passwords and OTP recovery</small></div></li>
+      </ul>
+      <div class="float-cards" aria-hidden="true">
+        <div class="mini-task t1"><span class="mini-check done"><svg class="ico"><use href="#i-check"/></svg></span><div><b>Finish project report</b><small>Done · 10:30 AM</small></div></div>
+        <div class="mini-task t2"><span class="mini-check"></span><div><b>Team meeting</b><small>Today · 4:00 PM</small></div><span class="mini-pill">High</span></div>
+        <div class="mini-task t3 late"><span class="mini-check"></span><div><b>Pay electricity bill</b><small>Overdue · WhatsApp sent</small></div><svg class="ico wa"><use href="#i-whatsapp"/></svg></div>
+      </div>
+    </section>
+
+    <section class="auth-panel">
+      <div class="auth-card glass" id="auth-card">
+        <div class="auth-head">
+          <span class="eyebrow" id="auth-eyebrow">WELCOME BACK</span>
+          <h2 id="auth-title">Sign in to MyToDo</h2>
+          <p id="auth-subtitle">Use your email or phone number with your MyToDo password.</p>
+        </div>
+
+        <div class="tabs" id="auth-tabs" role="tablist">
+          <span class="tab-glider" aria-hidden="true"></span>
+          <button type="button" id="login-tab" class="active" role="tab" aria-selected="true">Sign in</button>
+          <button type="button" id="register-tab" role="tab" aria-selected="false">Create account</button>
+        </div>
+
+        <div id="auth-message" class="auth-message" role="alert" aria-live="polite"></div>
+
+        <!-- Login -->
+        <form id="login-form" class="auth-form" novalidate autocomplete="on">
+          <label class="field"><span class="lbl">Email or phone number</span>
+            <span class="input-wrap"><svg class="ico lead"><use href="#i-user"/></svg>
+            <input id="login-identifier" name="username" type="text" inputmode="email" placeholder="you@example.com or 98765 43210" autocomplete="username" autocapitalize="off" spellcheck="false" required /></span>
+          </label>
+          <label class="field"><span class="lbl">MyToDo password</span>
+            <span class="input-wrap"><svg class="ico lead"><use href="#i-lock"/></svg>
+            <input id="login-password" name="password" type="password" placeholder="Enter your password" autocomplete="current-password" required />
+            <button type="button" class="eye" data-target="login-password" aria-label="Show password"><svg class="ico"><use href="#i-eye"/></svg></button></span>
+          </label>
+          <div class="row-between"><span></span><button type="button" id="forgot-link" class="link">Forgot password?</button></div>
+          <button class="btn primary" type="submit"><span class="btn-label">Sign in</span><svg class="ico"><use href="#i-arrow"/></svg><i class="spinner"></i></button>
+          <p class="switch-note">New here? <button type="button" class="link" id="go-register">Create a free account</button></p>
+        </form>
+
+        <!-- Register -->
+        <form id="register-form" class="auth-form hidden" novalidate autocomplete="on">
+          <label class="field"><span class="lbl">Your name</span>
+            <span class="input-wrap"><svg class="ico lead"><use href="#i-user"/></svg>
+            <input id="register-name" name="name" type="text" placeholder="Your full name" autocomplete="name" maxlength="60" required /></span>
+          </label>
+          <label class="field"><span class="lbl">Email address</span>
+            <span class="input-wrap"><svg class="ico lead"><use href="#i-mail"/></svg>
+            <input id="register-email" name="email" type="email" placeholder="you@example.com" autocomplete="email" autocapitalize="off" spellcheck="false" required /></span>
+          </label>
+          <div class="field"><label class="lbl" for="register-phone">WhatsApp number <em>(for reminders &amp; sign-in)</em></label>
+            <div class="phone-row">
+              <select id="register-cc" class="cc" aria-label="Country code"></select>
+              <span class="input-wrap grow"><svg class="ico lead"><use href="#i-whatsapp"/></svg>
+              <input id="register-phone" name="tel" type="tel" inputmode="tel" placeholder="98765 43210" autocomplete="tel-national" required /></span>
+            </div>
+          </div>
+          <label class="field"><span class="lbl">Create MyToDo password</span>
+            <span class="input-wrap"><svg class="ico lead"><use href="#i-lock"/></svg>
+            <input id="register-password" name="new-password" type="password" placeholder="At least 8 characters, letters + numbers" autocomplete="new-password" required />
+            <button type="button" class="eye" data-target="register-password" aria-label="Show password"><svg class="ico"><use href="#i-eye"/></svg></button></span>
+            <span class="strength" id="register-strength"><i></i><i></i><i></i><i></i><b>Enter a password</b></span>
+          </label>
+          <label class="field"><span class="lbl">Confirm password</span>
+            <span class="input-wrap"><svg class="ico lead"><use href="#i-lock"/></svg>
+            <input id="register-confirm" type="password" placeholder="Repeat your password" autocomplete="new-password" required />
+            <button type="button" class="eye" data-target="register-confirm" aria-label="Show password"><svg class="ico"><use href="#i-eye"/></svg></button></span>
+          </label>
+          <button class="btn primary" type="submit"><span class="btn-label">Create my account</span><svg class="ico"><use href="#i-arrow"/></svg><i class="spinner"></i></button>
+          <p class="switch-note">Already have an account? <button type="button" class="link" id="go-login">Sign in</button></p>
+        </form>
+
+        <!-- Forgot password -->
+        <form id="forgot-form" class="auth-form hidden" novalidate>
+          <div id="forgot-step1">
+            <label class="field"><span class="lbl">Email or phone number</span>
+              <span class="input-wrap"><svg class="ico lead"><use href="#i-user"/></svg>
+              <input id="forgot-identifier" type="text" placeholder="you@example.com or 98765 43210" autocomplete="username" autocapitalize="off" spellcheck="false" /></span>
+            </label>
+            <div class="field"><span class="lbl">Send my OTP via</span>
+              <div class="seg" id="channel-seg">
+                <button type="button" class="seg-btn active" data-channel="email"><svg class="ico"><use href="#i-mail"/></svg>Email</button>
+                <button type="button" class="seg-btn" data-channel="whatsapp"><svg class="ico"><use href="#i-whatsapp"/></svg>WhatsApp</button>
+              </div>
+              <small class="hint" id="channel-hint"></small>
+            </div>
+            <button class="btn primary" type="submit" id="send-otp-btn"><span class="btn-label">Send OTP</span><svg class="ico"><use href="#i-arrow"/></svg><i class="spinner"></i></button>
+          </div>
+          <div id="forgot-step2" class="hidden">
+            <div class="field"><span class="lbl">Enter the 6-digit OTP</span>
+              <div class="otp" id="otp-boxes">
+                <input class="otp-box" inputmode="numeric" maxlength="1" autocomplete="one-time-code" aria-label="OTP digit 1" />
+                <input class="otp-box" inputmode="numeric" maxlength="1" aria-label="OTP digit 2" />
+                <input class="otp-box" inputmode="numeric" maxlength="1" aria-label="OTP digit 3" />
+                <input class="otp-box" inputmode="numeric" maxlength="1" aria-label="OTP digit 4" />
+                <input class="otp-box" inputmode="numeric" maxlength="1" aria-label="OTP digit 5" />
+                <input class="otp-box" inputmode="numeric" maxlength="1" aria-label="OTP digit 6" />
+              </div>
+              <div class="row-between"><small class="hint" id="otp-sent-to"></small><button type="button" class="link" id="resend-otp" disabled>Resend</button></div>
+            </div>
+            <label class="field"><span class="lbl">New MyToDo password</span>
+              <span class="input-wrap"><svg class="ico lead"><use href="#i-lock"/></svg>
+              <input id="reset-password" type="password" placeholder="At least 8 characters, letters + numbers" autocomplete="new-password" />
+              <button type="button" class="eye" data-target="reset-password" aria-label="Show password"><svg class="ico"><use href="#i-eye"/></svg></button></span>
+              <span class="strength" id="reset-strength"><i></i><i></i><i></i><i></i><b>Enter a password</b></span>
+            </label>
+            <label class="field"><span class="lbl">Confirm new password</span>
+              <span class="input-wrap"><svg class="ico lead"><use href="#i-lock"/></svg>
+              <input id="reset-confirm" type="password" placeholder="Repeat your new password" autocomplete="new-password" /></span>
+            </label>
+            <button class="btn primary" type="button" id="reset-password-btn"><span class="btn-label">Reset password</span><svg class="ico"><use href="#i-check"/></svg><i class="spinner"></i></button>
+          </div>
+          <button type="button" id="back-login" class="link center"><svg class="ico sm"><use href="#i-back"/></svg> Back to sign in</button>
+        </form>
+
+        <div class="auth-foot"><svg class="ico sm"><use href="#i-shield"/></svg> Passwords are encrypted. We never see your email password.</div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ═════════════════ APP ═════════════════ -->
+  <div id="app-view" class="app-shell hidden">
+    <header class="topbar glass">
+      <a class="brand" href="/" aria-label="MyToDo"><span class="brand-mark"><svg class="ico"><use href="#i-check"/></svg></span><span class="brand-name">MyToDo</span></a>
+      <div class="top-actions">
+        <button id="theme-btn" class="icon-btn" title="Switch theme" aria-label="Switch theme"><svg class="ico"><use href="#i-sun"/></svg></button>
+        <div class="profile">
+          <div class="avatar" id="avatar">A</div>
+          <div class="who"><b id="profile-name">User</b><small id="profile-email">email</small></div>
+        </div>
+        <button id="logout-btn" class="icon-btn" title="Log out" aria-label="Log out"><svg class="ico"><use href="#i-logout"/></svg></button>
+      </div>
+    </header>
+
+    <main class="dashboard">
+      <section class="hero glass spot">
+        <div class="hero-text">
+          <span class="eyebrow" id="greeting">GOOD DAY</span>
+          <h2 id="hero-title">Turn plans into progress.</h2>
+          <p id="hero-subtitle">A calm place to capture everything you want to get done.</p>
+          <div class="live-clock"><svg class="ico"><use href="#i-clock"/></svg><b id="clock">--:--</b><span id="date">Loading…</span></div>
+        </div>
+        <div class="ring-wrap" aria-label="Completion progress">
+          <svg class="ring" viewBox="0 0 120 120"><defs><linearGradient id="rg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7c5cff"/><stop offset=".55" stop-color="#22d3ee"/><stop offset="1" stop-color="#ff5ca8"/></linearGradient></defs>
+            <circle class="ring-bg" cx="60" cy="60" r="52"/><circle class="ring-fg" id="ring-fg" cx="60" cy="60" r="52"/></svg>
+          <div class="ring-label"><b id="ring-pct">0%</b><small>done</small></div>
+        </div>
+      </section>
+
+      <section class="stats">
+        <div class="stat glass spot"><span>Total</span><b id="stat-total">0</b></div>
+        <div class="stat glass spot"><span>Active</span><b id="stat-active">0</b></div>
+        <div class="stat glass spot"><span>Completed</span><b id="stat-completed">0</b></div>
+        <div class="stat glass spot"><span>Due today</span><b id="stat-today">0</b></div>
+        <div class="stat glass spot danger"><span>Overdue</span><b id="stat-overdue">0</b></div>
+      </section>
+
+      <section class="workspace">
+        <aside class="side">
+          <div class="panel glass spot">
+            <div class="panel-head"><div><span class="eyebrow">QUICK CAPTURE</span><h3 id="form-heading">Add a new task</h3></div></div>
+            <form id="task-form" novalidate>
+              <label class="field"><span class="lbl">Task title</span><span class="input-wrap"><input id="task-title" maxlength="140" placeholder="What needs to be done?" required /></span></label>
+              <label class="field"><span class="lbl">Description <em>(optional)</em></span><span class="input-wrap"><input id="task-desc" maxlength="220" placeholder="Add a little context…" /></span></label>
+              <div class="grid-2">
+                <label class="field"><span class="lbl">Due date</span><span class="input-wrap"><input id="task-date" type="date" /></span></label>
+                <label class="field"><span class="lbl">Due time</span><span class="input-wrap"><input id="task-time" type="time" /></span></label>
+              </div>
+              <div class="grid-2">
+                <label class="field"><span class="lbl">Priority</span><span class="input-wrap"><select id="task-priority"><option value="low">Low</option><option value="medium" selected>Medium</option><option value="high">High</option></select></span></label>
+                <label class="field"><span class="lbl">Category</span><span class="input-wrap"><select id="task-category"><option value="personal">Personal</option><option value="work">Work</option><option value="study">Study</option><option value="shopping">Shopping</option><option value="other">Other</option></select></span></label>
+              </div>
+              <div class="form-buttons">
+                <button class="btn primary" type="submit" id="save-task"><span class="btn-label">Add task</span><svg class="ico"><use href="#i-plus"/></svg><i class="spinner"></i></button>
+                <button class="btn ghost hidden" type="button" id="cancel-edit">Cancel</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="panel glass spot wa-card">
+            <div class="wa-top"><span class="wa-badge"><svg class="ico"><use href="#i-whatsapp"/></svg></span>
+              <div><h3>WhatsApp reminders</h3><small id="wa-sub">Checking…</small></div>
+              <span class="chip" id="wa-chip">—</span></div>
+            <p class="wa-text" id="wa-text"></p>
+            <button class="btn ghost full" id="wa-manage" type="button">Manage WhatsApp</button>
+          </div>
+        </aside>
+
+        <div class="panel glass tasks-panel">
+          <div class="panel-head"><div><span class="eyebrow">YOUR LIST</span><h3>Tasks</h3></div><button id="clear-completed" class="btn ghost sm" type="button"><svg class="ico sm"><use href="#i-trash"/></svg>Clear completed</button></div>
+          <div class="toolbar">
+            <label class="search"><svg class="ico"><use href="#i-search"/></svg><input id="search" placeholder="Search tasks…" aria-label="Search tasks" /></label>
+          </div>
+          <div class="chips" id="filters" role="tablist">
+            <button class="chip-btn active" data-filter="all">All <b id="c-all">0</b></button>
+            <button class="chip-btn" data-filter="active">Active <b id="c-active">0</b></button>
+            <button class="chip-btn" data-filter="today">Today <b id="c-today">0</b></button>
+            <button class="chip-btn" data-filter="overdue">Overdue <b id="c-overdue">0</b></button>
+            <button class="chip-btn" data-filter="completed">Done <b id="c-completed">0</b></button>
+          </div>
+          <div id="task-list" class="task-list"></div>
+          <div id="empty" class="empty hidden"><div class="empty-ico"><svg class="ico"><use href="#i-list"/></svg></div><h4 id="empty-title">Nothing here yet</h4><p id="empty-text">Add your first task and make today count.</p></div>
+          <div id="loading" class="skeletons hidden"><i></i><i></i><i></i></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- ═════════════════ MODALS ═════════════════ -->
+  <div id="wa-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="wa-modal-title">
+    <div class="modal-card glass">
+      <button class="modal-x icon-btn" data-close aria-label="Close"><svg class="ico"><use href="#i-x"/></svg></button>
+      <span class="wa-badge big"><svg class="ico"><use href="#i-whatsapp"/></svg></span>
+      <h3 id="wa-modal-title">WhatsApp reminders</h3>
+      <p class="muted" id="wa-modal-desc"></p>
+      <div id="wa-modal-msg" class="auth-message" role="alert"></div>
+      <div class="field"><label class="lbl" for="wa-phone">Your WhatsApp number</label>
+        <div class="phone-row"><select id="wa-cc" class="cc" aria-label="Country code"></select>
+          <span class="input-wrap grow"><svg class="ico lead"><use href="#i-phone"/></svg><input id="wa-phone" type="tel" inputmode="tel" placeholder="98765 43210" /></span></div>
+      </div>
+      <label class="switch-row"><span><b>Send me reminders</b><small>Before a task is due and when it becomes overdue</small></span><span class="switch"><input type="checkbox" id="wa-enabled" /><i></i></span></label>
+      <div class="form-buttons">
+        <button class="btn primary" id="wa-save" type="button"><span class="btn-label">Save</span><i class="spinner"></i></button>
+        <button class="btn ghost" id="wa-test" type="button"><span class="btn-label">Send test message</span><i class="spinner"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <div id="confirm-modal" class="modal hidden" role="alertdialog" aria-modal="true" aria-labelledby="confirm-title">
+    <div class="modal-card glass small">
+      <span class="wa-badge big danger"><svg class="ico"><use href="#i-alert"/></svg></span>
+      <h3 id="confirm-title">Are you sure?</h3>
+      <p class="muted" id="confirm-text"></p>
+      <div class="form-buttons"><button class="btn danger" id="confirm-yes" type="button">Delete</button><button class="btn ghost" id="confirm-no" type="button">Cancel</button></div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <noscript><div class="noscript">MyToDo needs JavaScript. Please enable it in your browser.</div></noscript>
+  <script src="/js/background.js" defer></script>
+  <script src="/js/app.js" defer></script>
+</body>
+</html>

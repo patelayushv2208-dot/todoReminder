@@ -1,0 +1,11 @@
+{
+  "name": "MyToDo",
+  "short_name": "MyToDo",
+  "description": "Plan it. Do it. Never miss it. Task manager with WhatsApp reminders.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#070817",
+  "theme_color": "#070817",
+  "icons": [{ "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}
