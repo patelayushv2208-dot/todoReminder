@@ -1,0 +1,24 @@
+{
+  "name": "mytodo-pro",
+  "version": "3.0.0",
+  "private": true,
+  "description": "MyToDo Pro - task manager with email/phone login, OTP password reset and WhatsApp overdue reminders",
+  "main": "src/server.js",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "check": "node scripts/check-env.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.1.0",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.19.0",
+    "node-cron": "^4.2.1",
+    "nodemailer": "^7.0.6"
+  }
+}
